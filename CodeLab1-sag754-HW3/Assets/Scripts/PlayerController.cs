@@ -4,6 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float moveSpeed = 5f;
+
+    public Rigidbody2D rb;
+    public Animator animator;
+
+    public static PlayerController instance;
+
+    Vector2 movement;
+
+    private void Awake()
+    {
+        if (instance == null) //instance hasn't been set yet
+        {
+            instance = this; //set instance to this object
+            DontDestroyOnLoad(gameObject); //Dont Destroy this object when you load a new scene
+        }
+        else
+        { //if the instance is already set to an object
+            Destroy(gameObject); //destroy this new object, so there is only ever one
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +35,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Veritcal", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
