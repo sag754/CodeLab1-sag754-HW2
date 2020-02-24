@@ -3852,7 +3852,7 @@ PrefabInstance:
         type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 1945629702}
+      objectReference: {fileID: 0}
     - target: {fileID: 690224689358105129, guid: d82fa6627b21d1841b2f72472d539576,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3923,7 +3923,8 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8759436740455264116, guid: d82fa6627b21d1841b2f72472d539576, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d82fa6627b21d1841b2f72472d539576, type: 3}
 --- !u!1 &1341863154
 GameObject:
@@ -5133,12 +5134,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!82 &1945629702 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -8759436740455264116, guid: d82fa6627b21d1841b2f72472d539576,
-    type: 3}
-  m_PrefabInstance: {fileID: 1301697353}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2000847598
 GameObject:
   m_ObjectHideFlags: 0
